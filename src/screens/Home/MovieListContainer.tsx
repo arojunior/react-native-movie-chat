@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { SCREENS } from '../../common/infrastructure/constants';
-import { useMovies, Movie } from './MovieService';
+import { useMovies } from './MovieService';
+import { Movie } from  '../../types';
 
 interface Props {
   Component: any;

@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, ActivityIndicator } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import styled from 'styled-components/native';
-import { Movie } from './MovieService';
+import { Movie } from '../../types';
 
 const LoadingWrapper = styled.View`
   flex: 1;
