@@ -12,7 +12,7 @@ const Navigation = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name={SCREENS.HOME} component={MovieList} />
-        <Stack.Screen name={SCREENS.CHAT} component={MovieChat} />
+        <Stack.Screen name={SCREENS.CHAT} component={MovieChat} options={({ route }: any) => ({ title: route.params.movie.title })} />
       </Stack.Navigator>
     </NavigationContainer>
   );
