@@ -1,20 +1,48 @@
-import * as React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { FlatList, ActivityIndicator } from 'react-native';
+import { ListItem } from 'react-native-elements';
+import styled from 'styled-components/native';
 import { Movie } from './MovieService';
 
+const LoadingWrapper = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
 interface Props {
-  handleClickMovie: () => void;
-  movieList: Movie[];
+  handleClickMovie: (movie: Movie) => void;
+  movies: Movie[];
 }
 
-const MovieListComponent = ({ handleClickMovie, movieList }: Props) => {
+interface RenderItem {
+  item: Movie;
+}
+
+const MovieListComponent = ({ movies, handleClickMovie }: Props) => {
+  if (!movies.length) {
+    return (
+      <LoadingWrapper>
+        <ActivityIndicator />
+      </LoadingWrapper>
+    );
+  }
+
+  const renderItem = ({ item: movie }: RenderItem) => (
+    <ListItem
+      title={movie.title}
+      onPress={() => handleClickMovie(movie)}
+      bottomDivider
+      chevron
+    />
+  );
+
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <TouchableOpacity onPress={handleClickMovie}>
-        <Text>Home Screen</Text>
-        <Text>{JSON.stringify(movieList)}</Text>
-      </TouchableOpacity>
-    </View>
+    <FlatList<Movie>
+      data={movies}
+      renderItem={renderItem}
+      keyExtractor={(movie) => movie.slug}
+    />
   );
 };
 

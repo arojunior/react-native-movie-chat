@@ -4,15 +4,16 @@ import httpService from '../../services/httpService';
 import { API_URL } from '../../common/infrastructure/constants';
 
 const mapMovies = (data: Movie[]) => {
-  return data.map(({ title }) => ({
+  return data.map(({ title, year }) => ({
     title,
-    slug: slugify(title),
+    slug: slugify(`${title} ${year}`),
   }));
 };
 
 export type Movie = {
   title: string;
   slug: string;
+  year?: string;
 };
 
 export const useMovies = () => {

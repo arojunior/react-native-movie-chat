@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { SCREENS } from '../../common/infrastructure/constants';
-import { useMovies } from './MovieService';
+import { useMovies, Movie } from './MovieService';
 
 interface Props {
   Component: any;
@@ -9,13 +9,13 @@ interface Props {
 
 const MovieListContainer = ({ Component }: Props) => {
   const navigation = useNavigation();
-  const movieList = useMovies();
+  const { movies } = useMovies();
 
-  const handleClickMovie = () => {
-    navigation.navigate(SCREENS.CHAT);
+  const handleClickMovie = (movie: Movie) => {
+    navigation.navigate(SCREENS.CHAT, { movie });
   };
 
-  return <Component handleClickMovie={handleClickMovie} movieList={movieList} />;
+  return <Component movies={movies} handleClickMovie={handleClickMovie} />;
 };
 
 export default MovieListContainer;
