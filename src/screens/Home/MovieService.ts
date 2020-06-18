@@ -3,7 +3,7 @@ import slugify from '@sindresorhus/slugify';
 import httpService from '../../services/httpService';
 import loggerService from '../../services/loggerService';
 import { API_URL } from '../../common/infrastructure/constants';
-import { Movie } from '../../types/movie.type';
+import { Movie } from '../../types';
 
 const mapMovies = (data: Movie[]) => {
   return data.map(({ title, year }) => ({
@@ -26,5 +26,5 @@ export const useMovies = () => {
       });
   }, [setMovies]);
 
-  return { movies };
+  return movies;
 };

@@ -10,7 +10,7 @@ interface Props {
 
 const MovieListContainer = ({ Component }: Props) => {
   const navigation = useNavigation();
-  const { movies } = useMovies();
+  const movies = useMovies();
 
   const handleClickMovie = (movie: Movie) => {
     navigation.navigate(SCREENS.CHAT, { movie });
