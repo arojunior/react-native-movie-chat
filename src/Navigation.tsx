@@ -2,8 +2,8 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SCREENS } from './common/infrastructure/constants';
-import MovieList from './screens/Home/MovieList';
-import MovieChat from './screens/Chat/MovieChat';
+import MovieList from './screens/Home';
+import MovieChat from './screens/Chat';
 
 const Stack = createStackNavigator();
 
