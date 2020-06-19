@@ -16,10 +16,17 @@ const ContentWrapper = styled.View`
 
 interface Props {
   comments: Comment[];
+  text: string;
   onPressSubmit: () => void;
+  onChangeText: (value: string) => void;
 }
 
-const MovieChatComponent = ({ comments, onPressSubmit }: Props) => {
+const MovieChatComponent = ({
+  comments,
+  text,
+  onPressSubmit,
+  onChangeText,
+}: Props) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
@@ -29,7 +36,11 @@ const MovieChatComponent = ({ comments, onPressSubmit }: Props) => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ContentWrapper>
           <CommentList comments={comments} />
-          <CommentForm onPressSubmit={onPressSubmit} />
+          <CommentForm
+            text={text}
+            onPressSubmit={onPressSubmit}
+            onChangeText={onChangeText}
+          />
         </ContentWrapper>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

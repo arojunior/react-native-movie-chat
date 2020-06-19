@@ -24,14 +24,20 @@ const ButtonWrapper = styled.View`
 `;
 
 interface Props {
+  text: string;
   onPressSubmit: () => void;
+  onChangeText: (value: string) => void;
 }
 
-const FormComment = ({ onPressSubmit }: Props) => (
+const FormComment = ({ text, onPressSubmit, onChangeText }: Props) => (
   <FormWrapper>
     <FormContent>
       <InputWrapper>
-        <Input placeholder="Write comment" />
+        <Input
+          placeholder="Write a comment"
+          value={text}
+          onChangeText={onChangeText}
+        />
       </InputWrapper>
       <ButtonWrapper>
         <Button title="Submit" onPress={onPressSubmit} />
