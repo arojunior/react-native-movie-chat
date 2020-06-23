@@ -1,4 +1,4 @@
-# Turtle Mobile Task
+# React Native App / fetching movies and writing comments about it
 
 > App created using [Expo](https://expo.io/)
 
@@ -24,10 +24,3 @@ Basically:
 - services are used to perform complex tasks like to process data or http/io requests
 
 Following this approach we can easily reuse all the components, containers and services
-
-> Disclaimer
-- The commits were done directly in the master branch. In a real life project would be followed the git flow;
-- It's my first time using `expo`, I don't recommend it for large scale apps;
-- The instructions say to use `Firebase`, it is also my first time using it as database;
-- The screens are not following the prototype, since the task mention "No design is necessary";
-- Just tested on iPhone X device.
